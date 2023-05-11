@@ -1,0 +1,49 @@
+  <div class="card py-4 px-3">
+    <h2>รายการที่ซ่อมสำเร็จ</h2>
+    <hr>
+    <table id="example1" class="table table-bordered table-striped dataTable">
+      <thead>
+        <tr role="row" class="info">
+          <!-- <th  tabindex="0" rowspan="1" colspan="1" style="width: 5%;">ID</th> -->
+          <th tabindex="0" rowspan="1" colspan="1" style="width: 15%;">ผู้แจ้ง</th>
+          <th tabindex="0" rowspan="1" colspan="1" style="width: 15%;">ชื่องาน</th>
+          <th tabindex="0" rowspan="1" colspan="1" style="width: 15%;">รายละเอียดงาน</th>
+          <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">สถานที่</th>
+          <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">สถานะ</th>
+          <th tabindex="0" rowspan="1" colspan="1" style="width: 20%;">วันที่รับงาน</th>
+          <th tabindex="0" rowspan="1" colspan="1" style="width: 20%;">ซ่อมเสร็จสิ้น</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php foreach ($result as $row) {
+          $i += 1   ?>
+          <tr>
+            <!-- <td>
+         <?php echo $row['case_id']; ?>
+        </td> -->
+            <td>
+              <?php echo $row['u_name'] . ' ' . $row['u_lastname'] ?>
+            </td>
+            <td>
+              <?php echo $row['case_name']; ?>
+            </td>
+            <td>
+              <?php echo $row['detail_case']; ?>
+            </td>
+            <td>
+              <?php echo $row['place_case']; ?>
+            </td>
+            <td>
+              <?php echo $row['status_name']; ?>
+            </td>
+            <td>
+              <?php echo date("d-m-Y , H:i:s", strtotime($row['date_sent'])); ?>
+            </td>
+            <td>
+              <?php echo date("d-m-Y , H:i:s", strtotime($row['date_closs'])); ?>
+            </td>
+          <?php } ?>
+          </tr>
+      </tbody>
+    </table>
+  </div>
